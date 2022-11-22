@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caption-Generation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}" >
+</head>
+<style>
+
+</style>
+<body>
+    <center >
+        <header class="head">
+            <h1>
+
+                Upload Image to Generate Caption
+
+            </h1>
+        </header>
+    <div id="form_cmp">
+        <div class="formcomponent_cmp">
+
+
+            <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                <label for="user_input" >
+                    Upload Your Image Here :
+                </label>
+                <br>
+                    <input type="file" name="file" placeholder="Your Image" id="user_input" required >
+                <br>
+
+                    <button class="Predictbtn">Predict</button>
+            </form>
+
+              <div class="image">
+                  <img src="{{ image_path }}" alt="{{ image_path }}" class="img-thumbnail" >
+              </div>
+              <div id="result">
+                  <h3>
+                      {{ result }}
+                  </h3>
+
+              </div>
+        </div>
+    </div>
+    </center>
+
+
+</body>
+</html>
